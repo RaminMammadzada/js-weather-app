@@ -20,8 +20,8 @@ header {
   height: 10%;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
 }
 
 main {
@@ -39,8 +39,9 @@ main div {
   align-items: center;
 }
 
-main div form {
+main div .search_form {
   display: flex;
+  flex-direction: row;
 }
 
 footer {

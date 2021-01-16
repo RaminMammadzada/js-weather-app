@@ -1,6 +1,6 @@
-import headerView from './populateHeader';
-import mainView from './populateMain';
-import footerView from './populateFooter';
+import headerView from './generateHeader';
+import mainView from './generateMain';
+import footerView from './generateFooter';
 
 const home = () => {
   const body = document.querySelector('body');
