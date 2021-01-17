@@ -32,6 +32,7 @@
     "postcss-loader": "^4.1.0",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
+    "sparticles": "^1.2.0",
     "style-loader": "^2.0.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
@@ -42,11 +43,12 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^4.5.3",
     "html-webpack-plugin": "^4.5.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "@fortawesome/fontawesome-free": "^5.15.1"
+    "unsplash-js": "^7.0.2"
   }
 }

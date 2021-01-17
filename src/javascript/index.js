@@ -10,9 +10,11 @@ import home from './view/home';
 import { populateMain } from './controller/weatherControler';
 import { fetchWeatherData } from './model/weatherData';
 
+
 console.log('hi universe');
 
 home();
 
 populateMain();
 // fetchWeatherData();
+
