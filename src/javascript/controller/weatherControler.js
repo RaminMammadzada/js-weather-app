@@ -16,12 +16,12 @@ async function fetchImageData(queryText) {
   const result = await unsplash.search.getPhotos({
     query: queryText,
     page: 1,
-    perPage: 1,
+    perPage: 10,
   });
   console.log(result);
-  // const index = Math.floor(Math.random() * 10);
-  const img = result.response.results[0].links.download;
-  const avarageColorCode = result.response.results[0].color;
+  const index = Math.floor(Math.random() * 10);
+  const img = result.response.results[index].links.download;
+  const avarageColorCode = result.response.results[index].color;
   // console.log(">2> secondly run this");
   return [img, avarageColorCode];
 }
@@ -39,33 +39,51 @@ async function updateBody(queryText) {
 }
 
 const populateMain = () => {
-  const locationInput = document.getElementById('locationInput');
+  const locationInput = document.getElementById('location-input');
   const temperateView = document.getElementById('temperature');
   const searchButton = document.getElementById('search-button');
   const weatherIcon = document.getElementById('weather-icon');
   const weatherDescription = document.getElementById('weather-desciption');
+  const unitChanger = document.getElementById('unit-changer');
 
-  searchButton.addEventListener('click', async () => {
+  let tempInC;
+  let tempInF;
+  let weatherCondition;
+
+  const setTemperatureView = () => {
+    console.log(tempInF);
+    if (tempInF === undefined) {
+      temperateView.innerText = "You must first check weather for city!";
+    } else if (unitChanger.checked === true) {
+      temperateView.innerText = (Math.round(tempInF * 100) / 100).toString() + " °F";
+    } else if (unitChanger.checked === false) {
+      temperateView.innerText = (Math.round(tempInC * 100) / 100).toString() + " °C";
+    }
+  };
+
+  const setMainView = async () => {
     temperateView.innerText = 'loading...';
-    const temperatures = await fetchWeatherData(locationInput.value);
-    if (temperatures === null) {
+    const weatherData = await fetchWeatherData(locationInput.value);
+    if (weatherData === null) {
       temperateView.innerText = 'The location couldnt found!';
     }
-    console.log(temperatures);
+    console.log(weatherData);
 
     // [, temperateView.innerText] = Math.round(temperatures);
-    const [temInC, tempInF, weatherCondition] = temperatures;
-    temperateView.innerText = (Math.round(temInC * 100) / 100).toString() + " °C";
+    [tempInC, tempInF, weatherCondition] = weatherData;
+
+    setTemperatureView();
+
     weatherDescription.innerText = weatherCondition.description;
-    console.log(weatherCondition.description);
     weatherIcon.src = 'http://openweathermap.org/img/w/' + weatherCondition.icon.toString() + '.png';
-    console.log(weatherIcon);
     updateBody(weatherCondition.main);
     // console.log(">1> first run this");
-  });
+  };
+
+  searchButton.addEventListener('click', setMainView);
+
+  unitChanger.addEventListener('click', setTemperatureView);
 };
-
-
 
 // const populateFooter = () => {
 

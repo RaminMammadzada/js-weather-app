@@ -5,7 +5,7 @@ const mainView = () => {
   main.innerHTML = `
   <div>
     <div class="search_form">
-      <input type="text" id="locationInput"> <br>
+      <input type="text" id="location-input"> <br>
       <input type="submit" id="search-button" value="Search">
     </div>
     <h1 id="temperature">
