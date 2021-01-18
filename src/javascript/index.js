@@ -13,4 +13,3 @@ import populateMain from './controller/weatherControler';
 home();
 
 populateMain();
-// fetchWeatherData();

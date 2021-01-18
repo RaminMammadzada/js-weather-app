@@ -60,16 +60,13 @@ const populateMain = () => {
     } else if (weatherData === null) {
       locationNameView.innerText = 'The location couldnt found!';
     } else {
-      // [, temperateView.innerText] = Math.round(temperatures);
       [tempInC, tempInF, weatherCondition, countryAbbr] = weatherData;
-
       temperateView.innerText = '';
       weatherDescription.innerText = '';
       weatherIcon.src = '';
       await updateBodyBackground(weatherCondition.main);
       await sleep(1500);
       await setTemperatureView();
-      // console.log(">1> first run this");
     }
   };
 
@@ -88,9 +85,5 @@ const populateMain = () => {
 
   unitChanger.addEventListener('click', setTemperatureView);
 };
-
-// const populateFooter = () => {
-
-// }
 
 export default populateMain;

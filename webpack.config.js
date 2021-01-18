@@ -1,7 +1,6 @@
 // Webpack uses this to work with directories
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // This is the main configuration object.
 // Here you write different options and tell Webpack what to do
@@ -21,29 +20,12 @@ module.exports = {
       hash: false,
       filename: './index.html',
     }),
-    // new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   exclude: /(node_modules)/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ['@babel/preset-env']
-      //     }
-      //   }
-      // },
       {
         test: /\.css$/i,
         use: [
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     publicPath: ''
-          // },
-          //  },
           { loader: 'style-loader' },
           { loader: 'css-loader' }],
       },
