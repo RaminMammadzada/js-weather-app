@@ -7,6 +7,7 @@ const mainView = () => {
       <input class="btn btn-outline-secondary btn-light" type="submit" id="search-button" value="Search">
     </div>
     <div class="result-view">
+      <h1 id="location-name"></h1>
       <h1 id="temperature"></h1>
     </div>
     <div class="d-flex flex-row align-items-center">

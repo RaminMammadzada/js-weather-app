@@ -6,7 +6,8 @@ const fetchWeatherData = async (locationInfo) => {
     const tempInKelvin = parseFloat(weatherData.main.temp);
     const tempInFahrenheit = (tempInKelvin * (9 / 5)) - 459.67;
     const tempInCelcius = tempInKelvin - 273.15;
-    return [tempInCelcius, tempInFahrenheit, weatherData.weather[0]];
+
+    return [tempInCelcius, tempInFahrenheit, weatherData.weather[0], weatherData.sys.country];
   } catch (error) {
     return null;
   }

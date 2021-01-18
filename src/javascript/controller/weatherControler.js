@@ -1,4 +1,5 @@
 import changeColor from '../helpers/updateColor';
+import uppercaseFirstLetter from '../helpers/uppercaseFirstLetter';
 import fetchImageData from '../model/imageData';
 
 import fetchWeatherData from '../model/weatherData';
@@ -20,6 +21,7 @@ async function updateBodyBackground(queryText) {
 const populateMain = () => {
   const locationInput = document.getElementById('location-input');
   const resultView = document.getElementsByClassName('result-view')[0];
+  const locationNameView = document.getElementById('location-name');
   const temperateView = document.createElement('h1');
   const searchButton = document.getElementById('search-button');
   const weatherIcon = document.getElementById('weather-icon');
@@ -29,6 +31,7 @@ const populateMain = () => {
   let tempInC;
   let tempInF;
   let weatherCondition;
+  let countryAbbr;
 
   const setTemperatureView = () => {
     if (tempInF === undefined) {
@@ -38,23 +41,31 @@ const populateMain = () => {
     } else if (unitChanger.checked === false) {
       temperateView.innerText = `${(Math.round(tempInC * 100) / 100).toString()} °C`;
     }
-    resultView.innerHTML = '';
+
+    if (locationInput.value !== '') {
+      locationNameView.innerText = `${uppercaseFirstLetter(locationInput.value)}, ${countryAbbr}`;
+    }
+    weatherDescription.innerText = weatherCondition.description;
+    weatherIcon.src = `http://openweathermap.org/img/w/${weatherCondition.icon.toString()}.png`;
     resultView.appendChild(temperateView);
+
+    locationInput.value = '';
   };
 
   const setMainView = async () => {
-    resultView.innerHTML = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
+    locationNameView.innerHTML = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
     const weatherData = await fetchWeatherData(locationInput.value);
     if (locationInput.value === '') {
-      resultView.innerText = 'You must enter a location name first!';
+      locationNameView.innerText = 'You must enter a location name first!';
     } else if (weatherData === null) {
-      resultView.innerText = 'The location couldnt found!';
+      locationNameView.innerText = 'The location couldnt found!';
     } else {
       // [, temperateView.innerText] = Math.round(temperatures);
-      [tempInC, tempInF, weatherCondition] = weatherData;
+      [tempInC, tempInF, weatherCondition, countryAbbr] = weatherData;
 
-      weatherDescription.innerText = weatherCondition.description;
-      weatherIcon.src = `http://openweathermap.org/img/w/${weatherCondition.icon.toString()}.png`;
+      temperateView.innerText = '';
+      weatherDescription.innerText = '';
+      weatherIcon.src = '';
       await updateBodyBackground(weatherCondition.main);
       await sleep(1500);
       await setTemperatureView();

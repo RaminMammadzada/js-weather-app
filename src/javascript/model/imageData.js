@@ -9,9 +9,9 @@ const fetchImageData = async (queryText) => {
   const result = await unsplash.search.getPhotos({
     query: queryText,
     page: 1,
-    perPage: 10,
+    perPage: 30,
   });
-  const index = Math.floor(Math.random() * 10);
+  const index = Math.floor(Math.random() * 30);
   const img = result.response.results[index].links.download;
   const avarageColorCode = result.response.results[index].color;
   // console.log(">2> secondly run this");

@@ -15,7 +15,8 @@ body {
   color: #fff;
   padding: 0;
   margin: 0;
-  background: url(../images/default-background.jpg) no-repeat center center
+  background:
+    url(../images/default-background.jpg) no-repeat center center
     fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
