@@ -6,7 +6,7 @@ Microverse JS Project #4
 
 ![screenshot](./docs/images/screenshot.gif)
 
-This is a javascript Weather app project. It fetchs live weather updates and results from Weather API. The project also also makes use of Unsplash API to change the background image based on the weather condition. The page is dynamically rendered by using JavaScript DOM manipulation. JavaScript is used to generate the entire contents of the website. CSS is used to stylize.
+This is a javascript Weather app project. It fetchs live weather data from Weather API. The project also makes use of Unsplash API to change the background image based on the weather condition. The page is dynamically rendered by using JavaScript DOM manipulation. JavaScript is used to generate the entire contents of the page. Most of the page is stylized by pure CSS, though in some areas Bootstrap is used.
 
 The [requirements in Odin page](https://www.theodinproject.com/courses/javascript/lessons/weather-app) is followed.
 
