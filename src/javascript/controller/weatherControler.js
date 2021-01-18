@@ -4,11 +4,9 @@ import fetchImageData from '../model/imageData';
 
 import fetchWeatherData from '../model/weatherData';
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function updateBodyBackground(queryText) {
+const updateBodyBackground = async (queryText) => {
   const [returnedImage, avarageColorCode] = await fetchImageData(queryText);
 
   const body = document.querySelector('body');
@@ -16,7 +14,7 @@ async function updateBodyBackground(queryText) {
   body.style.backgroundSize = 'cover';
 
   changeColor(avarageColorCode);
-}
+};
 
 const populateMain = () => {
   const locationInput = document.getElementById('location-input');
