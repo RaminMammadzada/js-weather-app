@@ -44,7 +44,8 @@ async function updateBodyBackground(queryText) {
 
 const populateMain = () => {
   const locationInput = document.getElementById('location-input');
-  const temperateView = document.getElementById('temperature');
+  const resultView = document.getElementsByClassName('result-view')[0];
+  const temperateView = document.createElement('h1');
   const searchButton = document.getElementById('search-button');
   const weatherIcon = document.getElementById('weather-icon');
   const weatherDescription = document.getElementById('weather-desciption');
@@ -64,10 +65,12 @@ const populateMain = () => {
     } else if (unitChanger.checked === false) {
       temperateView.innerText = (Math.round(tempInC * 100) / 100).toString() + " °C";
     }
+    resultView.innerHTML = '';
+    resultView.appendChild(temperateView);
   };
 
   const setMainView = async () => {
-    temperateView.innerText = 'loading...';
+    resultView.innerHTML = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
     const weatherData = await fetchWeatherData(locationInput.value);
     if (weatherData === null) {
       temperateView.innerText = 'The location couldnt found!';
