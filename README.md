@@ -12,8 +12,8 @@ The [requirements in Odin page](https://www.theodinproject.com/courses/javascrip
 
 The page is made with modular valinna JS (JS6) and the following milestones are finished:
 
-- [x] Miltestone 1 - Setup HTML webpack to load style files, and pictures.
-- [x] Miltestone 2 - Create an MVC structure to create view files, model to fetch data and controller to populate data to view via model.
+- [x] Milestone 1 - Setup HTML webpack to load style files, and pictures.
+- [x] Milestone 2 - Create an MVC structure to create view files, model to fetch data and controller to populate data to view via model.
 - [x] Milestone 3 - Setup [Unsplash API](https://unsplash.com/developers) and [OpenWeather API](https://openweathermap.org/api) to fetch data.
 - [x] Milestone 4 - Add extra spinning loader.
 
