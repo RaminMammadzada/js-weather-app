@@ -15,8 +15,7 @@ body {
   color: #fff;
   padding: 0;
   margin: 0;
-  background:
-    url(../images/default-background.jpg) no-repeat center center
+  background: url(../images/default-background.jpg) no-repeat center center
     fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -64,12 +63,11 @@ footer {
   justify-content: center;
 }
 
-/* footer p {
-  background-color: rgba(32, 32, 32, 0.5);
-  border-radius: 50%;
-  padding: 10px 70px;
-} */
-
 #weather-icon {
   height: 4rem;
+}
+
+#location-input {
+  width: 210px;
+  margin-right: 5px;
 }

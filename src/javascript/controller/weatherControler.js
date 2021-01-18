@@ -45,19 +45,21 @@ const populateMain = () => {
   const setMainView = async () => {
     resultView.innerHTML = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
     const weatherData = await fetchWeatherData(locationInput.value);
-    if (weatherData === null) {
-      temperateView.innerText = 'The location couldnt found!';
+    if (locationInput.value === '') {
+      resultView.innerText = 'You must enter a location name first!';
+    } else if (weatherData === null) {
+      resultView.innerText = 'The location couldnt found!';
+    } else {
+      // [, temperateView.innerText] = Math.round(temperatures);
+      [tempInC, tempInF, weatherCondition] = weatherData;
+
+      weatherDescription.innerText = weatherCondition.description;
+      weatherIcon.src = `http://openweathermap.org/img/w/${weatherCondition.icon.toString()}.png`;
+      await updateBodyBackground(weatherCondition.main);
+      await sleep(1500);
+      await setTemperatureView();
+      // console.log(">1> first run this");
     }
-
-    // [, temperateView.innerText] = Math.round(temperatures);
-    [tempInC, tempInF, weatherCondition] = weatherData;
-
-    weatherDescription.innerText = weatherCondition.description;
-    weatherIcon.src = `http://openweathermap.org/img/w/${weatherCondition.icon.toString()}.png`;
-    await updateBodyBackground(weatherCondition.main);
-    await sleep(1500);
-    await setTemperatureView();
-    // console.log(">1> first run this");
   };
 
   searchButton.addEventListener('click', setMainView);
