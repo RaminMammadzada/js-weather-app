@@ -3,8 +3,8 @@ const mainView = () => {
   main.innerHTML = `
   <div>
     <div class="search_form">
-      <input type="text" id="location-input"> <br>
-      <input type="submit" id="search-button" value="Search">
+      <input class="form-control" type="text" id="location-input" placeholder="type the city name here"> <br>
+      <input class="btn btn-outline-secondary btn-light" type="submit" id="search-button" value="Search">
     </div>
     <div class="result-view">
       <h1 id="temperature"></h1>
