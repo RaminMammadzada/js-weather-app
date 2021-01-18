@@ -1,5 +1,3 @@
-import { htmlPrefilter } from "jquery";
-
 const mainView = () => {
   const main = document.createElement('main');
   main.innerHTML = `

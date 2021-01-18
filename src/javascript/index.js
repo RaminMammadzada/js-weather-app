@@ -8,10 +8,7 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import home from './view/home';
-import { populateMain } from './controller/weatherControler';
-import { fetchWeatherData } from './model/weatherData';
-
-console.log('hi universe');
+import populateMain from './controller/weatherControler';
 
 home();
 

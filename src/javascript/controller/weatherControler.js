@@ -1,7 +1,7 @@
-import changeTextColors from '../helpers/changeTextColors';
+import changeColor from '../helpers/updateColor';
 import fetchImageData from '../model/imageData';
 
-const { fetchWeatherData } = require('../model/weatherData');
+import fetchWeatherData from '../model/weatherData';
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -14,9 +14,7 @@ async function updateBodyBackground(queryText) {
   body.style.backgroundImage = `url(${returnedImage})`;
   body.style.backgroundSize = 'cover';
 
-  changeTextColors(avarageColorCode);
-
-  console.log(">1> firstly run this");
+  changeColor(avarageColorCode);
 }
 
 const populateMain = () => {
@@ -33,14 +31,12 @@ const populateMain = () => {
   let weatherCondition;
 
   const setTemperatureView = () => {
-    console.log(">2> secondly run this");
-    console.log(tempInF);
     if (tempInF === undefined) {
-      temperateView.innerText = "You must first check weather for city!";
+      temperateView.innerText = 'You must first check weather for city!';
     } else if (unitChanger.checked === true) {
-      temperateView.innerText = (Math.round(tempInF * 100) / 100).toString() + " °F";
+      temperateView.innerText = `${(Math.round(tempInF * 100) / 100).toString()} °F`;
     } else if (unitChanger.checked === false) {
-      temperateView.innerText = (Math.round(tempInC * 100) / 100).toString() + " °C";
+      temperateView.innerText = `${(Math.round(tempInC * 100) / 100).toString()} °C`;
     }
     resultView.innerHTML = '';
     resultView.appendChild(temperateView);
@@ -52,13 +48,12 @@ const populateMain = () => {
     if (weatherData === null) {
       temperateView.innerText = 'The location couldnt found!';
     }
-    console.log(weatherData);
 
     // [, temperateView.innerText] = Math.round(temperatures);
     [tempInC, tempInF, weatherCondition] = weatherData;
 
     weatherDescription.innerText = weatherCondition.description;
-    weatherIcon.src = 'http://openweathermap.org/img/w/' + weatherCondition.icon.toString() + '.png';
+    weatherIcon.src = `http://openweathermap.org/img/w/${weatherCondition.icon.toString()}.png`;
     await updateBodyBackground(weatherCondition.main);
     await sleep(1500);
     await setTemperatureView();
@@ -74,4 +69,4 @@ const populateMain = () => {
 
 // }
 
-export { populateMain }
+export default populateMain;

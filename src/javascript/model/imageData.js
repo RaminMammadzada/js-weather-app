@@ -11,7 +11,6 @@ const fetchImageData = async (queryText) => {
     page: 1,
     perPage: 10,
   });
-  console.log(result);
   const index = Math.floor(Math.random() * 10);
   const img = result.response.results[index].links.download;
   const avarageColorCode = result.response.results[index].color;

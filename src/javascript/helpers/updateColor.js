@@ -1,3 +1,9 @@
+function padZero(str, len) {
+  len = len || 2;
+  const zeros = new Array(len).join('0');
+  return (zeros + str).slice(-len);
+}
+
 function invertColor(hex) {
   if (hex.indexOf('#') === 0) {
     hex = hex.slice(1);
@@ -14,19 +20,12 @@ function invertColor(hex) {
   const g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16);
   const b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
   // pad each with zeros and return
-  return '#' + padZero(r) + padZero(g) + padZero(b);
+  return `#${padZero(r)}${padZero(g)}${padZero(b)}`;
 }
 
-function padZero(str, len) {
-  len = len || 2;
-  const zeros = new Array(len).join('0');
-  return (zeros + str).slice(-len);
-}
-
-const changeTextColors = (input) => {
+const changeColor = (input) => {
   const body = document.querySelector('body');
   body.style.color = invertColor(input);
-  console.log(input);
 };
 
-export default changeTextColors;
+export default changeColor;

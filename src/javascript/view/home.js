@@ -7,7 +7,6 @@ const home = () => {
   body.appendChild(headerView());
   body.appendChild(mainView());
   body.appendChild(footerView());
-
 };
 
 
