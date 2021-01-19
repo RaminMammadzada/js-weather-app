@@ -8,11 +8,11 @@ Microverse JS Project #4
 
 This is a javascript Weather app project. It fetchs live weather data from Weather API. The project also makes use of Unsplash API to change the background image based on the weather condition. The page is dynamically rendered by using JavaScript DOM manipulation. JavaScript is used to generate the entire contents of the page. Most of the page is stylized by pure CSS, though in some areas Bootstrap is used.
 
-The [requirements in Odin page](https://www.theodinproject.com/courses/javascript/lessons/weather-app) is followed.
+The [requirements in Odin page](https://www.theodinproject.com/courses/javascript/lessons/weather-app) are followed.
 
 The page is made with modular valinna JS (JS6) and the following milestones are finished:
 
-- [x] Milestone 1 - Setup HTML webpack to load style files, and pictures.
+- [x] Milestone 1 - Setup webpack to load style files, and pictures.
 - [x] Milestone 2 - Create an MVC structure to create view files, model to fetch data and controller to populate data to view via model.
 - [x] Milestone 3 - Setup [Unsplash API](https://unsplash.com/developers) and [OpenWeather API](https://openweathermap.org/api) to fetch data.
 - [x] Milestone 4 - Add extra spinning loader.
